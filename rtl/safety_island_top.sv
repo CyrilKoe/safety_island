@@ -424,6 +424,7 @@ module safety_island_top import safety_island_pkg::*; #(
   dm::dmi_req_t dmi_req;
   dm::dmi_resp_t dmi_resp;
 
+/*
   dmi_jtag #(
     .IdcodeValue(SafetyIslandCfg.PulpJtagIdCode)
   ) i_dmi_jtag (
@@ -447,6 +448,12 @@ module safety_island_top import safety_island_pkg::*; #(
     .td_o             ( jtag_tdo_o     ),
     .tdo_oe_o         ()
   );
+*/
+  assign dmi_rst_n = '0;
+  assign dmi_req = '0;
+  assign dmi_req_valid = '0;
+  assign dmi_resp_ready = '0;
+  assign jtag_tdo_o = '0;
 
   dm_top #(
     .NrHarts        ( NumInternalDebug        ),
